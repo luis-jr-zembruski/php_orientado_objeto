@@ -1,13 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 class Venda
 {
-  private $data;
-  private $produto;
-  private $quantidade;
-  private $preco;
+  private string $data;
+  private string $produto;
+  private int $quantidade;
+  private float $preco;
 
-  public function __construct($data, $produto, $quantidade, $preco)
+  public function __construct(string $data, string $produto, int $quantidade, float $preco)
   {
     $this->data = $data;
     $this->produto = $produto;
@@ -15,7 +17,7 @@ class Venda
     $this->preco = $preco;
   }
 
-  public function obterVenda()
+  public function obterVenda() : string
   {
     return 'Data da venda: ' . $this->data .
            'Produto: ' . $this->produto .
@@ -24,9 +26,9 @@ class Venda
            'Total: R$ ' . $this->obterValorTotal();
   }
 
-  public function obterValorTotal()
+  public function obterValorTotal() : float
   {
-    return $this->quantidade * $this->preco;
+    return $this->preco * $this->quantidade;
   }
 }
 
