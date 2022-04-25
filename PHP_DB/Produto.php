@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 class Produto
 {
-  private $conexao;
+  private PDO $conexao;
 
   public function __construct()
   {
