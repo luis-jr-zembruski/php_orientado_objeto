@@ -16,7 +16,7 @@ class Produto
     }
   }
 
-  public function list()
+  public function list(): void
   {
     $sql = 'select * from produtos';
     $prepare = $this->conexao->prepare($sql);
@@ -26,7 +26,7 @@ class Produto
     }
   }
 
-  public function insert()
+  public function insert(): int
   {
     $sql = 'insert into produtos(descricao) values(?)';
     $prepare = $this->conexao->prepare($sql);
@@ -35,7 +35,7 @@ class Produto
     return $prepare->rowCount();
   }
 
-  public function update()
+  public function update(): int
   {
     $sql = 'update produtos set descricao = ? where id = ?';
     $prepare = $this->conexao->prepare($sql);
@@ -45,7 +45,7 @@ class Produto
     return $prepare->rowCount();
   }
 
-  public function delete()
+  public function delete(): int
   {
     $sql = 'delete from produtos where id = ?';
     $prepare = $this->conexao->prepare($sql);
